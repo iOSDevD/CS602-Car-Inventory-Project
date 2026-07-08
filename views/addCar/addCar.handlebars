@@ -1,0 +1,141 @@
+<div class="container-fluid pt-2">
+    <div class="{{this.viewData.modeData.showDeleteAlert}} alert alert-danger mt-2" role="alert">
+        Are you sure you want to delete the car?
+        <button type="button" class="btn btn-primary btn-sm" onclick='location.href="/deleteFinal/{{viewData.carData.vinNumber}}"'>Yes</button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick='location.href="/allCars"'>No</button>
+    </div>
+    <div class="text-center">
+        <img src="/carImages/{{viewData.carData.mainImage}}" class="img-fluid" alt="Car Image">
+    </div>
+<form method="post">
+    <div class="form-group col-md-12 mt-3 mb-3">
+        <div class="row">
+            <div class="col-6">
+                <label for="program">Program</label>
+                <select class="form-control" id="program"  name="program" {{viewData.modeData.inputDisabled}}>
+                    {{#each viewData.allCarPrograms}}
+                        <option value="{{id}}" {{selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+
+            </div>
+            <div class="col-6">
+                <label for="carName">VIN Number</label>
+                <input type="text" class="form-control" id="vinNumber" name="vinNumber" value="{{viewData.carData.vinNumber}}" placeholder="VIN number of the car" required {{viewData.modeData.inputDisabled}}>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-md-12 mt-3 mb-3">
+        <div class="row">
+            <div class="col-4">
+                <label for="brand">Year</label>
+                <input type="number" class="form-control" id="year" name="year" value="{{viewData.carData.year}}" placeholder="Year of the Car" required {{viewData.modeData.inputDisabled}}>
+            </div>
+            <div class="col-4">
+                <label for="brand">Brand</label>
+
+                <select class="form-control" id="brand" name="brand" {{viewData.modeData.inputDisabled}}>
+                    {{#each viewData.allBrands}}
+                        <option value="{{_id}}" {{selected}}>{{brandName}}</option>
+                    {{/each}}
+                </select>
+
+            </div>
+            <div class="col-4">
+                <label for="carName">Name</label>
+                <input type="text" class="form-control" id="carName" name="carName" value="{{viewData.carData.carName}}" placeholder="Name of the car" required {{viewData.modeData.inputDisabled}}>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-md-12 mt-3 mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="engine">Engine</label>
+                <select class="form-control" id="engine"  name="engine" {{viewData.modeData.inputDisabled}}>
+                    {{#each viewData.allEngineOptions}}
+                        <option value="{{id}}" {{selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="drive">Drive</label>
+                <select class="form-control" id="drive" name="drive" {{viewData.modeData.inputDisabled}}>
+                    {{#each viewData.allDriveOptions}}
+                        <option value="{{id}}" {{selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="category">Category</label>
+                <select class="form-control" id="category" name="category" {{viewData.modeData.inputDisabled}}>
+                    {{#each viewData.allCarCategories}}
+                        <option value="{{id}}" {{selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-md-6 mt-3 mb-3">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" id="price" name="price" value="{{viewData.carData.price}}" placeholder="Price of the Car" required {{viewData.modeData.inputDisabled}}>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Vehicle Description</label>
+        <textarea name="description" class="form-control" id="description" rows="4" aria-describedby="descriptionHelp" maxlength="300" required {{viewData.modeData.inputDisabled}}>{{viewData.carData.description}}</textarea>
+        <small id="descriptionHelp" class="form-text text-muted">Max characters allowed is 300</small>
+    </div>
+
+    <div class="form-group col-md-6 mt-3 mb-3">
+        <label for="miles">Miles</label>
+        <input type="number" class="form-control" id="miles" name="miles" value="{{viewData.carData.miles}}" placeholder="Miles of the Car" required {{viewData.modeData.inputDisabled}}>
+    </div>
+
+    <div class="form-group col-md-6 mt-3 mb-3">
+        <div class="row">
+        <div class="col-6">
+            <label for="interiorColor">Interior Color</label>
+            <input type="color" class="form-control form-control-color" id="interiorColor" name="interiorColor" value="{{viewData.carData.interiorColor}}" title="Choose a color" {{viewData.modeData.inputDisabled}}>
+        </div>
+       <div class="col-6">
+           <label for="interiorColor">Exterior Color</label>
+        <input type="color" class="form-control form-control-color" id="exteriorColor" name="exteriorColor" value="{{viewData.carData.exteriorColor}}" title="Choose a color" {{viewData.modeData.inputDisabled}}>
+       </div>
+        </div>
+    </div>
+
+    <div class="form-group col-md-12 mt-3 mb-3">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="horsePower">Horsepower</label>
+                <input type="number" class="form-control" id="horsePower" value="{{viewData.carData.horsePower}}" name="horsePower" placeholder="Horse Power of the Car" required {{viewData.modeData.inputDisabled}}>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group col-md-12 mt-3 mb-3">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="mileageCity">Mileage-City</label>
+                <input type="number" class="form-control" id="mileageCity" name="mileageCity" value="{{viewData.carData.mileageCity}}" placeholder="Mileage(City)" required {{viewData.modeData.inputDisabled}}>
+            </div>
+            <div class="col-md-3">
+                <label for="mileageHighway">Mileage-Highway</label>
+                <input type="number" class="form-control" id="mileageHighway" name="mileageHighway" value="{{viewData.carData.mileageHighway}}" placeholder="Mileage(Highway)" required {{viewData.modeData.inputDisabled}}>
+            </div>
+            <div class="col-md-3">
+                <label for="mileageCombined">Mileage-Combined</label>
+                <input type="number" class="form-control" id="mileageCombined" name="mileageCombined" value="{{viewData.carData.mileageCombined}}" placeholder="Mileage(Combined)" required {{viewData.modeData.inputDisabled}}>
+            </div>
+        </div>
+    </div>
+
+    <div class="{{viewData.modeData.showSubmitButton}}">
+    <button type="submit" class="btn btn-primary">{{viewData.modeData.buttonTitle}}</button>
+    </div>
+</form>
+</div>

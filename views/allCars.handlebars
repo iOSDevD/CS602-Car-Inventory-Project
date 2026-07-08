@@ -1,0 +1,53 @@
+<div class="container-fluid pt-2">
+    <div class="{{this.mainViewData.showAddACar}} row  pt-4 pb-2">
+        <div class="col">
+            <p><a href="/addCar" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add a car</a></p>
+        </div>
+    </div>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    {{#each viewData}}
+    <div class="col">
+        <div class="card h-100">
+            <img class="card-img-top" src="{{this.mainImage}}" alt="Card image cap">
+            <div class="card-body">
+                <h3 class="card-title">{{this.title}}
+                    <div class="{{this.showCarQuoteBadge}}">
+                        <small>Quotes
+                    <span class="badge badge-pill bg-success" style="background-color: orange">{{this.quoteCount}}</span>
+                        </small>
+                    </div>
+                </h3>
+                <h4 class="card-subtitle text-primary">{{this.price}}</h4>
+                <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="{{this.interiorColor}}"  class="bi bi-circle-fill" viewBox="0 0 16 16">
+                    <circle stroke='#000000' strokeWidth='2' cx="8" cy="8" r="6"/>
+                </svg>
+                    <small>Interior Color</small>
+                </div>
+
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="{{this.exteriorColor}}"  class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle stroke='#000000' strokeWidth='2' cx="8" cy="8" r="6"/>
+                    </svg>
+                    <small>Exterior Color</small>
+                </div>
+
+                <span class="max-lines">
+                <p class="card-text">{{this.description}}</p>
+                </span>
+
+                <p class="card-text"><small class="text-muted">{{this.miles}}</small></p>
+                <div class="{{this.showContactDealer}}">
+                <button type="button" class="btn btn-primary" onclick='location.href="/contactDealer/{{this.vinNumber}}"'>Contact Dealer</button>
+                </div>
+
+                <div class="{{this.showDelete}}">
+                    <button type="button" class="btn btn-danger" onclick='location.href="/deleteCar/{{this.vinNumber}}"'>Delete</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+</div>

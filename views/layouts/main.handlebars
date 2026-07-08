@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <title>CS602 Project</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/projectUtil.css" />
+<script src="/js/bootstrap.js"></script>
+<body class="mt-4 mb-2 mx-1">
+
+<div class="d-flex justify-content-between mx-1">
+    <div>
+        <h3 class="display-6">CS602 Project - Car Inventory - iOSDevD</h3>
+    </div>
+    <div class="{{logoutData.showLogoutStyle}}">
+        <button type="button" class="btn btn-link" onclick='location.href="/logout"'>Logout</button>
+    </div>
+</div>
+
+<hr/>
+
+<div class="row mx-1">
+    <div class="col-2">
+        <h2>Filters</h2>
+        <form method="post" class="pt-1 mx-2">
+            <div class="form-group pt-1">
+                <label>Car Program</label>
+                <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" value="" id="newCar" name="newCar" {{filterViewData.newCarChecked}}>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        New Cars
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="certifiedCar" name="certifiedCar" {{filterViewData.certifiedCarChecked}}>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Certified Cars
+                    </label>
+                </div>
+            </div>
+            <div class="form-group pt-1">
+                <div class="mt-2">
+                    <label for="maxPrice" class="form-label">Max Price</label>
+                    <input type="range" class="form-range" min="0" max="100000" name="maxPrice" id="maxPrice" value="{{filterViewData.maxPrice}}" oninput="this.nextElementSibling.value = this.value"/>
+                    <output>100000</output>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Refresh</button>
+        </form>
+    </div>
+    <div class="col-10">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link {{mainViewData.allCarsTab}}" href="/allCars">All Cars
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{mainViewData.myRequestsTab}}" href="{{mainViewData.requestTabLink}}">{{mainViewData.requestTabTitle}}
+                    </a>
+                </li>
+            </ul>
+            {{{body}}}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

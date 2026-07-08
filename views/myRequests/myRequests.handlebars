@@ -1,0 +1,20 @@
+<ul class="list-group list-group-flush">
+    {{#each viewData}}
+    <a href="/contactDealer/{{this.vinNumber}}?quoteId={{this.id}}">
+    <li class="list-group-item">
+        <h1 class="display-3 text-primary">{{this.title}}</h1>
+        <p class="text-*">
+            <img src="{{this.mainImage}}" class="img-thumbnail mg-fluid float-md-start me-md-3 mb-3" alt="...">
+            <p class="">
+                <a href="/contactDealer/{{this.vinNumber}}?quoteId={{this.id}}">VIN Number: {{this.vinNumber}}</a>
+                <h4>
+                        <p>VIN Number: {{this.vinNumber}}</p>
+                        <p>Email: {{this.email}}</p>
+                        <p>Note: {{this.note}}</p>
+                </h4>
+            </p>
+        </p>
+    </li>
+    {{/each}}
+    </a>
+</ul>

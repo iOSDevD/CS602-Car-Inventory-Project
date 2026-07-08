@@ -1,0 +1,16 @@
+[{
+  "_id": "toyota",
+  "brandName": "Toyota",
+  "vinnumbers": [
+    "ABC1231231212012312",
+    "CAKA19123112331"
+  ]
+},
+  {
+    "_id": "honda",
+    "brandName": "Honda",
+    "vinnumbers": [
+      "XYAJC1231231212012312"
+    ]
+  }
+]
